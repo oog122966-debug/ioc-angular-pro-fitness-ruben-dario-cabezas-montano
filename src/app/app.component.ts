@@ -8,5 +8,5 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './app.component.html',
 })
 export class App {
-  protected readonly title = signal('ioc-angular-pro-fitness-ruben-dario-cabezas-montano');
+    appName: string = 'Pro Fitness';
 }
