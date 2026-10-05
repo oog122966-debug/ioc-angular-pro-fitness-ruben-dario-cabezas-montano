@@ -1,59 +1,50 @@
-# IocAngularProFitnessRubenDarioCabezasMontano
+# Pro Fitness
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.1.8.
+## Autor/a
 
-## Development server
+Ruben Dario Cabezas Montaño
 
-To start a local development server, run:
+## Descripció
 
-```bash
+Pro Fitness és una aplicació web de gestió d'entrenaments de fitness que permet als usuaris crear rutines personalitzades segons els seus objectius, consultar una biblioteca d'exercicis amb instruccions detallades d'execució i registrar el progrés de cada sessió.
+
+L'aplicació està desenvolupada amb Angular 22 i organitza la seva funcionalitat en mòduls de components, serveis i models de dades, amb una arquitectura preparada per incorporar noves funcionalitats com el seguiment de mètriques o la recomanació de rutines.
+
+## Versions utilitzades
+
+- **Node.js**: 24.21.0 (LTS)
+- **npm**: 11.19.0
+- **Angular CLI**: 22.1.8
+- **Angular**: 22.x
+- **Git**: 2.52.0
+- **Editor**: Visual Studio Code
+
+## Com crear i executar el projecte
+
+### Crear el projecte
+
+ng new ioc-angular-pro-fitness-ruben-dario-cabezas-montano --routing --style=scss --ssr=false --skip-git --file-name-style-guide=2016
+
+### Instal·lar dependències
+
+npm install
+
+### Executar el projecte en mode desenvolupament
+
 ng serve
-```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Un cop arrencat, obrir el navegador a: http://localhost:4200/
 
-## Code scaffolding
+## Estat de l'EAC1
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- [x] Exercici 1 — Verificació de l'entorn tècnic
+- [x] Exercici 2 — Creació del projecte Angular
+- [x] Exercici 3 — Estructura inicial i Git
+- [x] Exercici 4 — Personalització inicial de l'aplicació
+- [x] Exercici 5 — Execució, hot reload i README
 
-```bash
-ng generate component component-name
-```
+Branca de treball de l'EAC1: `ra1-setup`
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Enllaç del repositori
 
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+https://github.com/oog122966-debug/ioc-angular-pro-fitness-ruben-dario-cabezas-montano
