@@ -1,0 +1,7 @@
+<div class="list">
+  @for (rutina of rutinas; track rutina.id) {
+    <app-item-card [rutina]="rutina" (seleccionar)="onSeleccionar($event)"></app-item-card>
+  } @empty {
+    <p class="empty">No hi ha cap rutina disponible.</p>
+  }
+</div>

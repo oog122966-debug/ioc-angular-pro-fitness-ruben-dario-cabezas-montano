@@ -1,0 +1,11 @@
+<article class="card" (click)="onSeleccionar()" tabindex="0" (keydown.enter)="onSeleccionar()">
+  <header class="card-header">
+    <h3>{{ rutina.nombre }}</h3>
+    <app-tag [categoria]="rutina.categoria"></app-tag>
+  </header>
+  <p class="card-desc">{{ rutina.descripcion }}</p>
+  <footer class="card-footer">
+    <span>{{ rutina.duracionMinutos }} min</span>
+    <span>{{ rutina.fechaCreacion | date:'dd/MM/yyyy' }}</span>
+  </footer>
+</article>

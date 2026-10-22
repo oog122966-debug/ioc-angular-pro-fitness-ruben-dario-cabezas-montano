@@ -1,12 +1,32 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { Rutina } from './models/rutina.model';
+import { RUTINAS_MOCK } from './models/rutina.mock';
+import { FilterBarComponent } from './components/filter-bar/filter-bar.component';
+import { ItemListComponent } from './components/item-list/item-list.component';
 
 @Component({
-  imports: [RouterOutlet],
   selector: 'app-root',
-  styleUrl: './app.component.scss',
+  imports: [RouterOutlet, FilterBarComponent, ItemListComponent],
   templateUrl: './app.component.html',
+  styleUrl: './app.component.scss'
 })
 export class App {
-    appName: string = 'Pro Fitness';
+  appName: string = 'Pro Fitness';
+  rutinas: Rutina[] = RUTINAS_MOCK;
+  rutinasFiltradas: Rutina[] = [...RUTINAS_MOCK];
+  rutinaSeleccionada: Rutina | null = null;
+
+  onFiltrar(filtros: { texto: string; categoria: string }): void {
+    const texto = filtros.texto.toLowerCase().trim();
+    this.rutinasFiltradas = this.rutinas.filter(r => {
+      const coincideTexto = !texto || r.nombre.toLowerCase().includes(texto) || r.descripcion.toLowerCase().includes(texto);
+      const coincideCategoria = !filtros.categoria || r.categoria === filtros.categoria;
+      return coincideTexto && coincideCategoria;
+    });
+  }
+
+  onSeleccionar(rutina: Rutina): void {
+    this.rutinaSeleccionada = rutina;
+  }
 }

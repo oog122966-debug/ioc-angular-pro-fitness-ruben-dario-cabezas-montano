@@ -1,0 +1,25 @@
+.filter-bar {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+
+  input,
+  select,
+  button {
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 1rem;
+  }
+
+  button {
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #1d4ed8;
+    }
+  }
+}

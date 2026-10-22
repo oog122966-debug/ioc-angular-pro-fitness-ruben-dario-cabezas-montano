@@ -1,25 +1,12 @@
 <div class="container">
-  <h1>{{ 'Pro Fitness' }}</h1>
+  <h1>{{ appName }}</h1>
 
-  <p class="intro">
-    Hola, soy <strong>Ruben Dario Cabezas Montaño</strong>. 
-    {{ 'Pro Fitness' }} es una aplicación web para gestionar entrenamientos de fitness, 
-    crear rutinas personalizadas y hacer seguimiento del progreso.
-  </p>
+  <app-filter-bar (filtrar)="onFiltrar($event)"></app-filter-bar>
 
-  <div class="card">
-    <h2>Dades del projecte</h2>
-    <ul>
-      <li><strong>Autor:</strong> Ruben Dario Cabezas Montaño</li>
-      <li><strong>Aplicació:</strong> {{ 'Pro Fitness' }}</li>
-      <li><strong>Framework:</strong> Angular 22</li>
-      <li><strong>Rama:</strong> ra1-setup</li>
-    </ul>
-  </div>
+  <app-item-list
+    [rutinas]="rutinasFiltradas"
+    (seleccionar)="onSeleccionar($event)"
+  ></app-item-list>
 
-  <aside class="note">
-    <p>Aquesta és la primera personalització de l'aplicació. Properes unitats: components, serveis i navegació.</p>
-  </aside>
-
-  <p class="status">Projecte base llest - hot reload funcionant!</p>
+  <p class="status">Projecte base llest</p>
 </div>
