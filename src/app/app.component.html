@@ -1,12 +1,44 @@
 <div class="container">
   <h1>{{ appName }}</h1>
 
-  <app-filter-bar (filtrar)="onFiltrar($event)"></app-filter-bar>
+  <app-filter-bar
+    (filtrar)="onFiltrar($event)"
+    (restablir)="onRestablir()"
+  ></app-filter-bar>
 
-  <app-item-list
-    [rutinas]="rutinasFiltradas"
-    (seleccionar)="onSeleccionar($event)"
-  ></app-item-list>
+  <!-- Contador de resultados -->
+  <p class="counter" role="status" aria-live="polite">
+    @if (rutinasFiltradas.length > 0) {
+      Mostrant {{ rutinasFiltradas.length }} de {{ rutinas.length }} rutines.
+    } @else {
+      No s'ha trobat cap rutina.
+    }
+  </p>
+
+  <!-- Lista o mensaje sin resultados -->
+  @if (rutinasFiltradas.length > 0) {
+    <app-item-list
+      [rutinas]="rutinasFiltradas"
+      (seleccionar)="onSeleccionar($event)"
+    ></app-item-list>
+  } @else {
+    <p class="empty-message">No hi ha cap rutina que coincideixi amb els filtres aplicats.</p>
+  }
+
+  <!-- Panel de detalle -->
+  @if (rutinaSeleccionada) {
+    <aside class="detail-panel">
+      <h2>Detall de la rutina</h2>
+      <h3>{{ rutinaSeleccionada.nombre }}</h3>
+      <p>{{ rutinaSeleccionada.descripcion }}</p>
+      <ul>
+        <li><strong>Categoria:</strong> {{ rutinaSeleccionada.categoria }}</li>
+        <li><strong>Durada:</strong> {{ rutinaSeleccionada.duracionMinutos }} minuts</li>
+        <li><strong>Data de creació:</strong> {{ rutinaSeleccionada.fechaCreacion | date:'dd/MM/yyyy' }}</li>
+        <li><strong>Destacada:</strong> {{ rutinaSeleccionada.destacada ? 'Sí' : 'No' }}</li>
+      </ul>
+    </aside>
+  }
 
   <p class="status">Projecte base llest</p>
 </div>

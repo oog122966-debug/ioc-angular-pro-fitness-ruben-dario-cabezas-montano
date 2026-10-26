@@ -9,11 +9,18 @@ import { FormsModule } from '@angular/forms';
 })
 export class FilterBarComponent {
   @Output() filtrar = new EventEmitter<{ texto: string; categoria: string }>();
+  @Output() restablir = new EventEmitter<void>();
 
   texto: string = '';
   categoria: string = '';
 
   onFiltrar(): void {
     this.filtrar.emit({ texto: this.texto, categoria: this.categoria });
+  }
+
+  onRestablir(): void {
+    this.texto = '';
+    this.categoria = '';
+    this.restablir.emit();
   }
 }

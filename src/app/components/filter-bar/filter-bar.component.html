@@ -1,15 +1,43 @@
 <div class="filter-bar">
-  <input
-    type="text"
-    placeholder="Cercar rutina..."
-    [(ngModel)]="texto"
-  />
-  <select [(ngModel)]="categoria">
-    <option value="">Totes les categories</option>
-    <option value="Fuerza">Fuerza</option>
-    <option value="Cardio">Cardio</option>
-    <option value="Flexibilidad">Flexibilidad</option>
-    <option value="Core">Core</option>
-  </select>
-  <button (click)="onFiltrar()">Filtrar</button>
+  <div class="field">
+    <label for="filtro-texto">Cercar rutina</label>
+    <input
+      id="filtro-texto"
+      type="text"
+      name="texto"
+      placeholder="Escriu el nom o la descripció..."
+      [(ngModel)]="texto"
+      #textoInput="ngModel"
+      required
+      minlength="3"
+    />
+    @if (textoInput.invalid && textoInput.touched) {
+      <p class="error">
+        @if (textoInput.errors?.['required']) {
+          El camp de cerca és obligatori.
+        }
+        @if (textoInput.errors?.['minlength']) {
+          El text ha de tenir almenys 3 caràcters.
+        }
+      </p>
+    }
+  </div>
+
+  <div class="field">
+    <label for="filtro-categoria">Categoria</label>
+    <select id="filtro-categoria" name="categoria" [(ngModel)]="categoria">
+      <option value="">Totes les categories</option>
+      <option value="Fuerza">Fuerza</option>
+      <option value="Cardio">Cardio</option>
+      <option value="Flexibilidad">Flexibilidad</option>
+      <option value="Core">Core</option>
+    </select>
+  </div>
+
+  <div class="actions">
+    <button (click)="onFiltrar()">Aplicar filtre</button>
+    <button type="button" class="btn-secondary" (click)="onRestablir()">
+      Restablir
+    </button>
+  </div>
 </div>

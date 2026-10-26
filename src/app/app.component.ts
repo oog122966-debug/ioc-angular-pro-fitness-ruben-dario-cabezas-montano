@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { DatePipe } from '@angular/common';
 import { Rutina } from './models/rutina.model';
 import { RUTINAS_MOCK } from './models/rutina.mock';
 import { FilterBarComponent } from './components/filter-bar/filter-bar.component';
@@ -7,7 +8,7 @@ import { ItemListComponent } from './components/item-list/item-list.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, FilterBarComponent, ItemListComponent],
+  imports: [RouterOutlet, FilterBarComponent, ItemListComponent, DatePipe],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -28,5 +29,9 @@ export class App {
 
   onSeleccionar(rutina: Rutina): void {
     this.rutinaSeleccionada = rutina;
+  }
+
+  onRestablir(): void {
+    this.rutinasFiltradas = [...this.rutinas];
   }
 }
