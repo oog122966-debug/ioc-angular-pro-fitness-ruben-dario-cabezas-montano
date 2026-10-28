@@ -132,3 +132,36 @@
     }
   }
 }
+
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  background: #2563eb;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  z-index: 1000;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 0 0 8px 0;
+  transition: top 0.2s;
+
+  &:focus {
+    top: 0;
+    outline: 3px solid #fbbf24;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem 0.5rem;
+
+    h1 {
+      font-size: 1.75rem;
+    }
+  }
+
+  .detail-panel {
+    padding: 1rem;
+  }
+}

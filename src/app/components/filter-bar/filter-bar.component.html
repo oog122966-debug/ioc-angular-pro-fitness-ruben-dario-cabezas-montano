@@ -12,7 +12,7 @@
       minlength="3"
     />
     @if (textoInput.invalid && textoInput.touched) {
-      <p class="error">
+      <p class="error" role="alert">
         @if (textoInput.errors?.['required']) {
           El camp de cerca és obligatori.
         }

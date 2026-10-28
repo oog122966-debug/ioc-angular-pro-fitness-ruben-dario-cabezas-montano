@@ -48,3 +48,29 @@ Branca de treball de l'EAC1: `ra1-setup`
 ## Enllaç del repositori
 
 https://github.com/oog122966-debug/ioc-angular-pro-fitness-ruben-dario-cabezas-montano
+
+
+## Versions utilitzades (EAC2)
+
+- **Node.js**: 24.21.0 (LTS)
+- **npm**: 11.19.0
+- **Angular CLI**: 22.1.8
+- **Angular**: 22.x
+- **Git**: 2.52.0
+
+## Branca de treball (EAC2)
+
+`ra2-components`
+
+## Components creats (EAC2)
+
+- `TagComponent` (`src/app/components/tag/`): etiqueta de categoria.
+- `ItemCardComponent` (`src/app/components/item-card/`): targeta resum d'una rutina.
+- `ItemListComponent` (`src/app/components/item-list/`): llistat de rutines amb `@for`.
+- `FilterBarComponent` (`src/app/components/filter-bar/`): formulari de filtres amb validacions.
+
+## Comandes útils
+
+```bash
+ng serve              # Executar en desenvolupament
+ng build              # Compilar per producció
