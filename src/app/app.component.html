@@ -1,42 +1,42 @@
-<a href="#main-content" class="skip-link">Saltar al contingut principal</a>
 <div class="container" id="main-content" tabindex="-1">
   <h1>{{ appName }}</h1>
+
+  @if (cargando()) {
+  <p class="loading" role="status" aria-live="polite">Carregant rutines...</p>
+  }
 
   <app-filter-bar
     (filtrar)="onFiltrar($event)"
     (restablir)="onRestablir()"
   ></app-filter-bar>
 
-  <!-- Contador de resultados -->
   <p class="counter" role="status" aria-live="polite">
-    @if (rutinasFiltradas.length > 0) {
-      Mostrant {{ rutinasFiltradas.length }} de {{ rutinas.length }} rutines.
+    @if (rutinasFiltradas().length > 0) {
+      Mostrant {{ rutinasFiltradas().length }} de {{ rutinas().length }} rutines.
     } @else {
       No s'ha trobat cap rutina.
     }
   </p>
 
-  <!-- Lista o mensaje sin resultados -->
-  @if (rutinasFiltradas.length > 0) {
+  @if (rutinasFiltradas().length > 0) {
     <app-item-list
-      [rutinas]="rutinasFiltradas"
+      [rutinas]="rutinasFiltradas()"
       (seleccionar)="onSeleccionar($event)"
     ></app-item-list>
   } @else {
     <p class="empty-message">No hi ha cap rutina que coincideixi amb els filtres aplicats.</p>
   }
 
-  <!-- Panel de detalle -->
-  @if (rutinaSeleccionada) {
+  @if (rutinaSeleccionada()) {
     <aside class="detail-panel">
       <h2>Detall de la rutina</h2>
-      <h3>{{ rutinaSeleccionada.nombre }}</h3>
-      <p>{{ rutinaSeleccionada.descripcion }}</p>
+      <h3>{{ rutinaSeleccionada()!.nombre }}</h3>
+      <p>{{ rutinaSeleccionada()!.descripcion }}</p>
       <ul>
-        <li><strong>Categoria:</strong> {{ rutinaSeleccionada.categoria }}</li>
-        <li><strong>Durada:</strong> {{ rutinaSeleccionada.duracionMinutos }} minuts</li>
-        <li><strong>Data de creació:</strong> {{ rutinaSeleccionada.fechaCreacion | date:'dd/MM/yyyy' }}</li>
-        <li><strong>Destacada:</strong> {{ rutinaSeleccionada.destacada ? 'Sí' : 'No' }}</li>
+        <li><strong>Categoria:</strong> {{ rutinaSeleccionada()!.categoria }}</li>
+        <li><strong>Durada:</strong> {{ rutinaSeleccionada()!.duracionMinutos }} minuts</li>
+        <li><strong>Data de creació:</strong> {{ rutinaSeleccionada()!.fechaCreacion | date:'dd/MM/yyyy' }}</li>
+        <li><strong>Destacada:</strong> {{ rutinaSeleccionada()!.destacada ? 'Sí' : 'No' }}</li>
       </ul>
     </aside>
   }

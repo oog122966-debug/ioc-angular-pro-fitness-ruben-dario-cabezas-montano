@@ -6,6 +6,7 @@ export const RUTINAS_MOCK: Rutina[] = [
     nombre: 'Full Body Principiante',
     descripcion: 'Rutina completa para iniciarse en el entrenamiento de fuerza.',
     categoria: 'Fuerza',
+    nivel: 'Principiante',
     fechaCreacion: new Date('2025-01-10'),
     duracionMinutos: 45,
     destacada: true
@@ -15,6 +16,7 @@ export const RUTINAS_MOCK: Rutina[] = [
     nombre: 'Cardio HIIT Express',
     descripcion: 'Entrenamiento interválico de alta intensidad en poco tiempo.',
     categoria: 'Cardio',
+    nivel: 'Intermedio',
     fechaCreacion: new Date('2025-02-15'),
     duracionMinutos: 20,
     destacada: true
@@ -24,6 +26,7 @@ export const RUTINAS_MOCK: Rutina[] = [
     nombre: 'Movilidad y Estiramientos',
     descripcion: 'Sesión suave para mejorar la flexibilidad y recuperación.',
     categoria: 'Flexibilidad',
+    nivel: 'Principiante',
     fechaCreacion: new Date('2025-03-05'),
     duracionMinutos: 30,
     destacada: false
@@ -33,6 +36,7 @@ export const RUTINAS_MOCK: Rutina[] = [
     nombre: 'Piernas y Glúteos',
     descripcion: 'Rutina enfocada en el tren inferior con ejercicios compuestos.',
     categoria: 'Fuerza',
+    nivel: 'Intermedio',
     fechaCreacion: new Date('2025-03-20'),
     duracionMinutos: 50,
     destacada: false
@@ -42,6 +46,7 @@ export const RUTINAS_MOCK: Rutina[] = [
     nombre: 'Core y Abdominales',
     descripcion: 'Trabajo específico de la zona media para mejorar la estabilidad.',
     categoria: 'Core',
+    nivel: 'Intermedio',
     fechaCreacion: new Date('2025-04-02'),
     duracionMinutos: 25,
     destacada: false
@@ -51,6 +56,7 @@ export const RUTINAS_MOCK: Rutina[] = [
     nombre: 'Espalda y Bíceps',
     descripcion: 'Rutina de tracción para fortalecer la espalda y los brazos.',
     categoria: 'Fuerza',
+    nivel: 'Avanzado',
     fechaCreacion: new Date('2025-04-18'),
     duracionMinutos: 55,
     destacada: true
@@ -60,6 +66,7 @@ export const RUTINAS_MOCK: Rutina[] = [
     nombre: 'Cardio Continuo Suave',
     descripcion: 'Sesión de cardio de baja intensidad para mejorar la resistencia.',
     categoria: 'Cardio',
+    nivel: 'Principiante',
     fechaCreacion: new Date('2025-05-01'),
     duracionMinutos: 40,
     destacada: false
@@ -69,6 +76,7 @@ export const RUTINAS_MOCK: Rutina[] = [
     nombre: 'Pecho y Tríceps',
     descripcion: 'Rutina de empuje para desarrollar el tren superior.',
     categoria: 'Fuerza',
+    nivel: 'Intermedio',
     fechaCreacion: new Date('2025-05-12'),
     duracionMinutos: 50,
     destacada: false
@@ -78,6 +86,7 @@ export const RUTINAS_MOCK: Rutina[] = [
     nombre: 'Yoga para Deportistas',
     descripcion: 'Secuencia de posturas para equilibrar cuerpo y mente.',
     categoria: 'Flexibilidad',
+    nivel: 'Principiante',
     fechaCreacion: new Date('2025-05-25'),
     duracionMinutos: 35,
     destacada: true
@@ -87,6 +96,7 @@ export const RUTINAS_MOCK: Rutina[] = [
     nombre: 'Circuito Metabólico',
     descripcion: 'Combinación de fuerza y cardio para aumentar el gasto calórico.',
     categoria: 'Cardio',
+    nivel: 'Avanzado',
     fechaCreacion: new Date('2025-06-08'),
     duracionMinutos: 45,
     destacada: false

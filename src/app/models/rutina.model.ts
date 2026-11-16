@@ -4,6 +4,7 @@ export interface Rutina {
   descripcion: string;
   categoria: string;
   fechaCreacion: Date;
+  nivel: string;
   duracionMinutos: number;
   destacada: boolean;
 }
