@@ -12,10 +12,7 @@
     </div>
   }
 
-  <app-filter-bar
-    (filtrar)="onFiltrar($event)"
-    (restablir)="onRestablir()"
-  ></app-filter-bar>
+  <app-buscador-reactivo (buscar)="onBuscar($event)"></app-buscador-reactivo>>
 
   <app-rutina-form (crear)="onCrearRutina($event)"></app-rutina-form>
 

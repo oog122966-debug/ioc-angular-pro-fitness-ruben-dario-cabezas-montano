@@ -1,0 +1,50 @@
+<form class="buscador" [formGroup]="form">
+  <div class="field">
+    <label for="busqueda">Cercar rutina</label>
+    <input
+      id="busqueda"
+      type="text"
+      formControlName="texto"
+      placeholder="Escriu almenys 3 caràcters..."
+    />
+    @if (validando) {
+      <p class="info" role="status">Comprovant resultats...</p>
+    }
+    @if (textoControl.invalid && textoControl.touched) {
+      <p class="error" role="alert">
+        @if (textoControl.errors?.['minlength']) {
+          El text ha de tenir almenys 3 caràcters.
+        }
+        @if (textoControl.errors?.['sinResultados']) {
+          No s'ha trobat cap rutina amb aquest terme.
+        }
+      </p>
+    }
+  </div>
+
+  <div class="field">
+    <label for="categoria">Categoria</label>
+    <select id="categoria" formControlName="categoria">
+      <option value="">Totes les categories</option>
+      <option value="Fuerza">Fuerza</option>
+      <option value="Cardio">Cardio</option>
+      <option value="Flexibilidad">Flexibilidad</option>
+      <option value="Core">Core</option>
+    </select>
+  </div>
+
+  <button type="button" class="btn-limpiar" (click)="limpiar()">Netejar cerca</button>
+</form>
+
+@if (historial.length > 0) {
+  <div class="historial">
+    <h4>Cerques recents</h4>
+    <ul>
+      @for (termino of historial; track termino) {
+        <li>
+          <button type="button" (click)="usarDelHistorial(termino)">{{ termino }}</button>
+        </li>
+      }
+    </ul>
+  </div>
+}

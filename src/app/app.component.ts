@@ -2,14 +2,14 @@ import { Component, inject, OnInit, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { DatePipe } from '@angular/common';
 import { Rutina } from './models/rutina.model';
-import { FilterBarComponent } from './components/filter-bar/filter-bar.component';
+import { BuscadorReactivoComponent } from './components/buscador-reactivo/buscador-reactivo.component';
 import { ItemListComponent } from './components/item-list/item-list.component';
 import { RutinaFormComponent } from './components/rutina-form/rutina-form.component';
 import { RutinaService } from './services/rutina.service';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, FilterBarComponent, ItemListComponent, RutinaFormComponent, DatePipe],
+  imports: [RouterOutlet, BuscadorReactivoComponent, ItemListComponent, RutinaFormComponent, DatePipe],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -62,5 +62,9 @@ export class App implements OnInit {
       },
       error: () => this.error.set('No s\'ha pogut crear la rutina.')
     });
+  }
+
+  onBuscar(filtros: { texto: string; categoria: string }): void {
+  this.onFiltrar(filtros);
   }
 }
