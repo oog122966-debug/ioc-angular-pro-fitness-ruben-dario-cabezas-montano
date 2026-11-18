@@ -1,0 +1,46 @@
+<form class="rutina-form" (ngSubmit)="onCrear()">
+  <h3>Crear nova rutina</h3>
+
+  <div class="field">
+    <label for="nombre">Nom</label>
+    <input id="nombre" type="text" [(ngModel)]="nombre" name="nombre" required />
+  </div>
+
+  <div class="field">
+    <label for="descripcion">Descripció</label>
+    <input id="descripcion" type="text" [(ngModel)]="descripcion" name="descripcion" />
+  </div>
+
+  <div class="field">
+    <label for="categoria">Categoria</label>
+    <select id="categoria" [(ngModel)]="categoria" name="categoria">
+      <option value="Fuerza">Fuerza</option>
+      <option value="Cardio">Cardio</option>
+      <option value="Flexibilidad">Flexibilidad</option>
+      <option value="Core">Core</option>
+    </select>
+  </div>
+
+  <div class="field">
+    <label for="nivel">Nivell</label>
+    <select id="nivel" [(ngModel)]="nivel" name="nivel">
+      <option value="Principiante">Principiante</option>
+      <option value="Intermedio">Intermedio</option>
+      <option value="Avanzado">Avanzado</option>
+    </select>
+  </div>
+
+  <div class="field">
+    <label for="duracion">Durada (minuts)</label>
+    <input id="duracion" type="number" [(ngModel)]="duracionMinutos" name="duracion" min="1" />
+  </div>
+
+  <div class="field checkbox">
+    <label>
+      <input type="checkbox" [(ngModel)]="destacada" name="destacada" />
+      Destacada
+    </label>
+  </div>
+
+  <button type="submit" [disabled]="!nombre.trim()">Crear rutina</button>
+</form>

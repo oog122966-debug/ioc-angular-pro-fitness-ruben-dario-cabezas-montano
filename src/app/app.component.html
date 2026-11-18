@@ -2,13 +2,22 @@
   <h1>{{ appName }}</h1>
 
   @if (cargando()) {
-  <p class="loading" role="status" aria-live="polite">Carregant rutines...</p>
+    <p class="loading" role="status" aria-live="polite">Carregant rutines...</p>
+  }
+
+  @if (error()) {
+    <div class="error-box" role="alert">
+      <p>{{ error() }}</p>
+      <button (click)="onReintentar()">Reintentar</button>
+    </div>
   }
 
   <app-filter-bar
     (filtrar)="onFiltrar($event)"
     (restablir)="onRestablir()"
   ></app-filter-bar>
+
+  <app-rutina-form (crear)="onCrearRutina($event)"></app-rutina-form>
 
   <p class="counter" role="status" aria-live="polite">
     @if (rutinasFiltradas().length > 0) {
@@ -34,6 +43,7 @@
       <p>{{ rutinaSeleccionada()!.descripcion }}</p>
       <ul>
         <li><strong>Categoria:</strong> {{ rutinaSeleccionada()!.categoria }}</li>
+        <li><strong>Nivell:</strong> {{ rutinaSeleccionada()!.nivel }}</li>
         <li><strong>Durada:</strong> {{ rutinaSeleccionada()!.duracionMinutos }} minuts</li>
         <li><strong>Data de creació:</strong> {{ rutinaSeleccionada()!.fechaCreacion | date:'dd/MM/yyyy' }}</li>
         <li><strong>Destacada:</strong> {{ rutinaSeleccionada()!.destacada ? 'Sí' : 'No' }}</li>

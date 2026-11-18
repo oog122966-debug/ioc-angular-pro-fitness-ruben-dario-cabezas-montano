@@ -99,6 +99,26 @@
       "fechaCreacion": "2025-06-08",
       "duracionMinutos": 45,
       "destacada": false
+    },
+    {
+      "nombre": "Rutina de prueba POST",
+      "descripcion": "Rutina creada para demostrar el POST",
+      "categoria": "Fuerza",
+      "nivel": "Intermedio",
+      "fechaCreacion": "2026-11-17",
+      "duracionMinutos": 40,
+      "destacada": true,
+      "id": 11
+    },
+    {
+      "nombre": "Rutina de prueba POST",
+      "descripcion": "Rutina creada para demostrar el POST",
+      "categoria": "Fuerza",
+      "nivel": "Principiante",
+      "fechaCreacion": "2026-11-17",
+      "duracionMinutos": 30,
+      "destacada": false,
+      "id": 12
     }
   ]
 }

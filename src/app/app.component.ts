@@ -4,11 +4,12 @@ import { DatePipe } from '@angular/common';
 import { Rutina } from './models/rutina.model';
 import { FilterBarComponent } from './components/filter-bar/filter-bar.component';
 import { ItemListComponent } from './components/item-list/item-list.component';
+import { RutinaFormComponent } from './components/rutina-form/rutina-form.component';
 import { RutinaService } from './services/rutina.service';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, FilterBarComponent, ItemListComponent, DatePipe],
+  imports: [RouterOutlet, FilterBarComponent, ItemListComponent, RutinaFormComponent, DatePipe],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -18,17 +19,16 @@ export class App implements OnInit {
   private rutinaService = inject(RutinaService);
 
   cargando = this.rutinaService.cargando;
+  error = this.rutinaService.error;
+
   rutinas = signal<Rutina[]>([]);
   rutinasFiltradas = signal<Rutina[]>([]);
   rutinaSeleccionada = signal<Rutina | null>(null);
 
   ngOnInit(): void {
-    this.rutinaService.getRutinas().subscribe({
-      next: (data) => {
-        this.rutinas.set(data);
-        this.rutinasFiltradas.set(data);
-      },
-      error: (err) => console.error('Error al cargar rutinas:', err)
+    this.rutinaService.rutinas$.subscribe(data => {
+      this.rutinas.set(data);
+      this.rutinasFiltradas.set(data);
     });
   }
 
@@ -48,5 +48,19 @@ export class App implements OnInit {
 
   onRestablir(): void {
     this.rutinasFiltradas.set([...this.rutinas()]);
+  }
+
+  onReintentar(): void {
+    this.rutinaService.reintentar();
+  }
+
+  onCrearRutina(nueva: Omit<Rutina, 'id'>): void {
+    this.rutinaService.crearRutina(nueva).subscribe({
+      next: () => {
+        this.rutinaService.reintentar();
+        this.rutinaSeleccionada.set(null);
+      },
+      error: () => this.error.set('No s\'ha pogut crear la rutina.')
+    });
   }
 }
